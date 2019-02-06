@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Journal Impact Factor</title>
+</head>
+<body>
+	{% if searchResult == 0 %}
+	<font size="6" align="center"> 교수 이름 검색 결과 없음 </font>
+	{% elif searchResult == 1 %}
+	<font size="6" align="center"> 논문 검색 </font>
+	<table border="1">
+		<tr>
+			<th>Scholar Search Keyword</th>
+			<th>{{ searchWord.sName }}</th>
+		</tr>
+		<tr>
+			<th>논문명</th>
+			<th>저널명</th>
+			<th>연도</th>
+			<th>IF</th>
+		</tr>
+		{% for r in resultSet %}
+		<tr>
+			<th> {{ r.sname}}</th>
+			<th> {{ r.jname}}</th>
+			<th> {{ r.year}}</th>
+			<th> {{ r.if}}</th>
+		</tr> 
+		{% endfor %}
+	</table>
+	
+	{% else %}
+	<table border="1">
+		<tr>
+			{% if searchResult == 2 %}
+			<th>Professor Search Keyword</th>
+			<th>{{ searchWord.pName }}</th>
+			{% elif searchResult == 3 %}
+			<th>Scholar Search Keyword</th>
+			<th>{{ searchWord.sName }}</th>
+			{% endif %}
+		</tr>
+		<tr>
+			<th>논문명</th>
+			<th>저널명</th>
+			<th>연도</th>
+			<th>IF</th>
+		</tr>
+		{% for r in resultSet %}
+		<tr>
+			<th> {{ r.sname}}</th>
+			<th> {{ r.jname }}</th>
+			<th> {{ r.year }}</th>
+			<th> {{ r.if }}</th>
+		</tr> 
+		{% endfor %}
+	</table>
+	{% endif %}
+</body>
+</html>

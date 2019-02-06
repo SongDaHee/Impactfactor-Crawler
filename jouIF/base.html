@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Journal Impact Factor</title>
+	
+	
+	<script language="javascript">
+		
+		<!--
+		function checkDisable1()
+		{
+			var checkbox = document.getElementById('chkbox1');
+			var textbox = document.getElementById('pName');
+			if( checkbox.checked == true ){
+			   textbox.disabled = true;
+			   textbox.value = "";
+			} else 
+			{
+			   textbox.disabled = false;
+			}
+		}
+		//-->
+		
+		<!--
+		function checkDisable2()
+		{
+			var checkbox = document.getElementById('chkbox2');
+			var textbox = document.getElementById('sName');
+			if( checkbox.checked == true ){
+				textbox.disabled = true;
+				textbox.value = "";
+			} else 
+			{
+			   textbox.disabled = false;
+			}
+		}
+		//-->
+		
+	</script>
+</head>
+
+<body>
+<form action ="" method="post">
+	{% csrf_token %}
+	<div>
+		<input name="chkbox1" id="chkbox1" type="checkbox" onClick="checkDisable1()" />
+		<label for="pName"> <font size=5>Professor Name:</label>
+		<input type="text" id="pName" name="pName" />
+	</div>
+	
+	<div>
+		<input name="chkbox2" id="chkbox2" type="checkbox" onClick="checkDisable2()" />
+		<label for="sName">Scholar Name:</label>
+		<input type="text" id="sName" name="sName" />
+	</div>
+	
+	<input type="submit" value='submit' />
+</form>
+</body>
+</html>

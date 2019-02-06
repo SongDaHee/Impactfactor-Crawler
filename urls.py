@@ -1,14 +1,25 @@
-from django.urls import path
-from django.conf.urls import url
-#from django.views.generic import RedirectView
+"""mysite URL Configuration
 
-from . import views
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import include,path
+from django.conf.urls import url
+from jouIF import views as jouIFView
+
 
 urlpatterns = [
-	#path('', views.index, name='index'),
-	#path('test', views.DisplayProfessor, name='test'),
-	#url(r'test', views.DisplayProfessor, name='DisplayProfessor'),
-	url('test/(?P<professorId>.+)', views.DisplayProfessor,name='DisplayProfessor'),
-	url('base', views.DisplayBase,name='DisplayBase'),
-	#url('searcbTest', RedirectView.as_view(pattern_name='DisplayBase', permanent=False)),
+	path(r'jouIF', include('jouIF.urls')),
+	path('admin/', admin.site.urls),
 ]
